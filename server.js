@@ -13,6 +13,7 @@ mongoose.connect(process.env.DB_URL);
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
 const Book = require('./models/book')
 
@@ -39,6 +40,35 @@ async function getBooks(request, response, next) {
     response.status(200).send(results);
   } catch (error) {
     next(error);
+  }
+}
+
+
+
+app.post('/books', postBook);
+
+async function postBook(request, response, next) {
+  console.log(request.body)
+  try {
+    const newBook = await Book.create(request.body);
+    response.status(201).send(newBook);
+  } catch (error) {
+    next(error);
+  }
+}
+
+
+
+app.delete('/books/:bookid', deleteBook);
+
+async function deleteBook(request, response, next) {
+  const id = request.params.bookid;
+  console.log(id);
+  try {
+    await Book.findByIdAndDelete(id);
+    response.status(204).send('Success!');
+  } catch (error) {
+    next(error)
   }
 }
 
