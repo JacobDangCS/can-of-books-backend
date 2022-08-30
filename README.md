@@ -26,11 +26,13 @@ Books are life-changing. They have the power to enlighten, educate, entertain, h
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+
+Lab 11:
 2pm - Code template cloned and personal markups are being added
 3pm - Files are added and deployment will begin
 
-## Estimates
 
+## Estimates
 
 Lab 11:
 Name of feature: Creation & Skeleton Deployment
@@ -41,18 +43,19 @@ Start time: 2pm
 
 Finish time: 5pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 3 hours
 
 Lab 12:
-Name of feature: ________________________________
+Name of feature: Create & Delete of CRUD
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 hour
 
-Start time: _____
+Start time: 2pm
 
-Finish time: _____
+Finish time: 4pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2 hours
+
 
 Lab 13:
 Name of feature: ________________________________
