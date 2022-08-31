@@ -15,7 +15,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const Book = require('./models/book')
+const Book = require('./models/book.js')
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'))
@@ -48,9 +48,12 @@ async function getBooks(request, response, next) {
 app.post('/books', postBook);
 
 async function postBook(request, response, next) {
-  console.log(request.body)
+  console.log('request.body')
+  console.table(request.body)
   try {
     const newBook = await Book.create(request.body);
+    console.log('newBook: ')
+    console.table(newBook)
     response.status(201).send(newBook);
   } catch (error) {
     next(error);
@@ -63,7 +66,8 @@ app.delete('/books/:bookid', deleteBook);
 
 async function deleteBook(request, response, next) {
   const id = request.params.bookid;
-  console.log(id);
+  console.log('id: ')
+  console.table(id);
   try {
     await Book.findByIdAndDelete(id);
     response.status(204).send('Success!');
