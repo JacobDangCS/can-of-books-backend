@@ -65,7 +65,7 @@ async function postBook(request, response, next) {
 app.delete('/books/:bookid', deleteBook);
 
 async function deleteBook(request, response, next) {
-  const id = request.params.bookid;
+  const id = request.pararms.bookid;
   console.log('id: ')
   console.table(id);
   try {
