@@ -81,7 +81,6 @@ app.put('/books/:bookid', putBooks)
 async function putBooks(request, response, next) {
   let id = request.pararms.bookid
   try {
-    //updated book info coming in on the body
     let data = request.body;
     const updateBook = await Book.findByIdAndUpdate(id, data, {new: true, overwrite: true});
     response.status(201).send(updateBook);
