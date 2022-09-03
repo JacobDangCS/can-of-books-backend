@@ -65,7 +65,7 @@ async function postBook(request, response, next) {
 app.delete('/books/:bookid', deleteBook);
 
 async function deleteBook(request, response, next) {
-  const id = request.pararms.bookid;
+  const id = request.params.bookid;
   console.log('id: ')
   console.table(id);
   try {
@@ -79,7 +79,7 @@ async function deleteBook(request, response, next) {
 app.put('/books/:bookid', putBooks)
 
 async function putBooks(request, response, next) {
-  let id = request.pararms.bookid
+  let id = request.params.bookid;
   try {
     let data = request.body;
     const updateBook = await Book.findByIdAndUpdate(id, data, {new: true, overwrite: true});
@@ -87,7 +87,6 @@ async function putBooks(request, response, next) {
   } catch (error) {
     next(error);
   }
-
 }
 
 
