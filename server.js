@@ -25,7 +25,7 @@ db.once('open', function () {
 
 const PORT = process.env.PORT || 3002;
 
-app.get('test', (request, response) => {
+app.get('/test', (request, response) => {
 
   response.send('test request received')
 
@@ -33,7 +33,7 @@ app.get('test', (request, response) => {
 
 
 
-app.get('books', getBooks)
+app.get('/books', getBooks)
 async function getBooks(request, response, next) {
   try {
     let results = await Book.find();
@@ -45,7 +45,7 @@ async function getBooks(request, response, next) {
 
 
 
-app.post('books', postBook);
+app.post('/books', postBook);
 
 async function postBook(request, response, next) {
   console.log('request.body')
@@ -62,7 +62,7 @@ async function postBook(request, response, next) {
 
 
 
-app.delete('books/:bookid', deleteBook);
+app.delete('/books/:bookid', deleteBook);
 
 async function deleteBook(request, response, next) {
   const id = request.params.bookid;
@@ -76,7 +76,7 @@ async function deleteBook(request, response, next) {
   }
 }
 
-app.put('books/:bookid', putBooks)
+app.put('/books/:bookid', putBooks)
 
 async function putBooks(request, response, next) {
   let id = request.params.bookid;
